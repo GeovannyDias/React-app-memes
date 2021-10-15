@@ -10,6 +10,12 @@ npm start
 
 
 
+OR:
+
+npm install -g create-react-app
+
+create-react-app my_app
+
 Instalar los paquetes actualizados:
 
 npm cache clean --force

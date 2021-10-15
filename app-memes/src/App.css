@@ -37,6 +37,17 @@
   }
 }
 
+/* CSS MEME */
+
+.content-meme {
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.content-meme img {
+  width: 100%;
+}
+
 /* TEST CSS START */
 
 .container {
