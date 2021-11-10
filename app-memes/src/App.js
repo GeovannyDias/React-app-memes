@@ -1,12 +1,27 @@
-import { useState } from "react"; // Hooks
+import { useState, useEffect } from "react"; // Hooks
 import "./App.css";
+import html2canvas from "html2canvas";
 
 function App() {
   // Create states
   // const [variable, functions] = useState(initialState);
-  const [linea1, setLinea1] = useState("");
+  const [linea1, setLinea1] = useState(""); // HOOK
   const [linea2, setLinea2] = useState("");
   const [image, setImage] = useState("");
+
+  // HOOKS
+  // useEffect(() => {
+  //   console.log('Use Effect:', linea1);
+  //   // document.title = `You clicked ${linea1} times`;
+  // });
+
+  // useEffect(() => {
+  //   console.log('Use Effect run when change linea1:', linea1);
+  // }, [linea1]);
+
+  // useEffect(() => {
+  //   console.log('Use Effect run Only One');
+  // }, []);
 
   const onChengeLinea1 = (event) => {
     // refresh variable linea1
@@ -22,32 +37,53 @@ function App() {
     setImage(event.target.value);
   };
 
+  const onClickExport = (event) => {
+    html2canvas(document.querySelector("#meme")).then((canvas) => {
+      // document.body.appendChild(canvas);
+
+      // var canvas = document.getElementById("meme");
+      const img = canvas.toDataURL("image/png"); // Convierte a imagen
+      // document.write('<img src="' + img + '"/>');
+
+      const link = document.createElement("a");
+      link.download = "meme.png";
+      // link.href = document.getElementById("canvas").toDataURL();
+      link.href = img;
+      link.click();
+    });
+  };
+
   return (
     <div className="App">
       <br />
-      <select onChange={onChengeImage}>
-        <option value="">Seleccionar Imagen</option>
-        <option value="meme1">Meme 1</option>
-        <option value="meme2">Meme 2</option>
-        <option value="meme3">Meme 3</option>
-        <option value="meme4">Meme 4</option>
-        <option value="meme5">Meme 5</option>
-      </select>
-      <br />
+      <div className="container-properties">
+        <select className="select-meme" onChange={onChengeImage}>
+          <option value="">Seleccionar Imagen</option>
+          <option value="meme1">Meme 1</option>
+          <option value="meme2">Meme 2</option>
+          <option value="meme3">Meme 3</option>
+          <option value="meme4">Meme 4</option>
+          <option value="meme5">Meme 5</option>
+        </select>
+        <input
+          className="input-meme"
+          onChange={onChengeLinea1}
+          type="text"
+          placeholder="Enter text linea 1"
+        />
+        <input
+          className="input-meme"
+          onChange={onChengeLinea2}
+          type="text"
+          placeholder="Enter text linea 2"
+        />
+        <button className="btn-meme" onClick={onClickExport}>
+          Export
+        </button>
+      </div>
       <br />
 
-      <input onChange={onChengeLinea1} type="text" placeholder="Linea 1" />
-      <br />
-
-      <input onChange={onChengeLinea2} type="text" placeholder="Linea 2" />
-      <br />
-      <br />
-
-      <button> Export</button>
-      <br />
-      <br />
-
-      <div className="content-meme">
+      <div className="content-meme" id="meme">
         <span>{linea1}</span>
         <span>{linea2}</span>
         <img src={`assets/images/${image}.jpg`} alt="" />

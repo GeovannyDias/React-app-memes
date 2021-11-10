@@ -87,5 +87,22 @@ React (Los compontes reaccionse).
 
 ```
 
+## Plugins
+
+```
+Los Hooks son funciones de JavaScript, pero necesitas seguir dos reglas cuando los uses. Proporcionamos un plugin de linter para hacer cumplir estas reglas automáticamente.
+
+
+https://www.npmjs.com/package/eslint-plugin-react-hooks
+
+npm i eslint-plugin-react-hooks
+npm install eslint-plugin-react-hooks --save-dev
+
+
+html2canvas
+
+npm install --save html2canvas
+
+```
 
 
