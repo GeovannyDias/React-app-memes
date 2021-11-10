@@ -37,20 +37,25 @@ function App() {
     setImage(event.target.value);
   };
 
-  const onClickExport = (event) => {
-    html2canvas(document.querySelector("#meme")).then((canvas) => {
-      // document.body.appendChild(canvas);
-
-      // var canvas = document.getElementById("meme");
-      const img = canvas.toDataURL("image/png"); // Convierte a imagen
-      // document.write('<img src="' + img + '"/>');
-
-      const link = document.createElement("a");
-      link.download = "meme.png";
-      // link.href = document.getElementById("canvas").toDataURL();
-      link.href = img;
-      link.click();
-    });
+  const onClickExport = () => {
+    if (image && (linea1  || linea2)) {
+      html2canvas(document.querySelector("#meme")).then((canvas) => {
+        // document.body.appendChild(canvas);
+  
+        // var canvas = document.getElementById("meme");
+        const img = canvas.toDataURL("image/png"); // Convierte a imagen
+        // document.write('<img src="' + img + '"/>');
+  
+        const link = document.createElement("a");
+        link.download = "meme.png";
+        // link.href = document.getElementById("canvas").toDataURL();
+        link.href = img;
+        link.click();
+      });
+    } else {
+      alert('Seleccione una imagen e ingrese texto en las cajas');
+    }
+    
   };
 
   return (
