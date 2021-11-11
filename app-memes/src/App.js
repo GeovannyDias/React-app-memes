@@ -74,13 +74,13 @@ function App() {
           className="input-meme"
           onChange={onChengeLinea1}
           type="text"
-          placeholder="Enter text linea 1"
+          placeholder="Enter text - Linea 1"
         />
         <input
           className="input-meme"
           onChange={onChengeLinea2}
           type="text"
-          placeholder="Enter text linea 2"
+          placeholder="Enter text - Linea 2"
         />
         <button className="btn-meme" onClick={onClickExport}>
           Export
