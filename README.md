@@ -105,4 +105,7 @@ npm install --save html2canvas
 
 ```
 
+## Result
+
+![image](https://user-images.githubusercontent.com/23192401/141213755-01a4bcfa-5cb1-4d33-b116-8a72d1926141.png)
 
