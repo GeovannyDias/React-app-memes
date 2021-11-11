@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; // Hooks
+import { useState } from "react"; // Hooks
 import "./App.css";
 import html2canvas from "html2canvas";
 
